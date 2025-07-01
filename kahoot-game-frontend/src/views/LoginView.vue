@@ -21,6 +21,8 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import axios from 'axios';
 
+// Lấy URL cơ sở của API từ biến môi trường
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; 
 const email = ref('');
 const password = ref('');
 const error = ref(null);
@@ -29,7 +31,7 @@ const router = useRouter();
 const handleLogin = async () => {
   error.value = null;
   try {
-    const response = await axios.post('http://localhost:5000/api/auth/login', {
+    const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
       email: email.value,
       password: password.value
     });

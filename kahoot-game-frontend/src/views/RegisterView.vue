@@ -29,6 +29,8 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import axios from 'axios';
 
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; 
 const newUsername = ref('');
 const newEmail = ref('');
 const newPassword = ref('');
@@ -43,7 +45,7 @@ const handleRegister = async () => {
     return;
   }
   try {
-    const response = await axios.post('http://localhost:5000/api/auth/register', {
+    const response = await axios.post('`${API_BASE_URL}/api/auth/login`', {
       username: newUsername.value,
       email: newEmail.value,
       password: newPassword.value
