@@ -45,7 +45,7 @@ const handleRegister = async () => {
     return;
   }
   try {
-    const response = await axios.post('`${API_BASE_URL}/api/auth/login`', {
+    const response = await axios.post('`${API_BASE_URL}/api/auth/register`', {
       username: newUsername.value,
       email: newEmail.value,
       password: newPassword.value
